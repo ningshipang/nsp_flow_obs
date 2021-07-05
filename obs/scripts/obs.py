@@ -16,26 +16,26 @@ import numpy as np
 import threading
 import Tkinter
 
-from rflysim_ros_pkg.msg import Obj
+# from rflysim_ros_pkg.msg import Obj
 
-Pos_Tong = np.array([[10, 0.5, 2],
-                    [15, 0.2, 2],
-                    [20, 0.8, 2],  # 2
-                    [25, -5, 2],
-                    [28, -3.2, 2],
-                    [30, 1.5, 2],
-                    [32, 2, 2],
-                    [18, 1.5, 2],
-                    [22, -1.5, 2],
-                    [25, 0, 2],  # 2.1
-                    [29, -1.5, 2],
-                    [8, 0, 2],
-                    [35, 5, 2],
-                    [40, 0.4, 2],
-                    [45, 3.5, 2],
-                    [50, -8, 2],
-                    [55, -6, 2]])
-ID_Tong = [20, 30, 40, 50, 60, 70, 80, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+# Pos_Tong = np.array([[10, 0.5, 2],
+#                     [15, 0.2, 2],
+#                     [20, 0.8, 2],  # 2
+#                     [25, -5, 2],
+#                     [28, -3.2, 2],
+#                     [30, 1.5, 2],
+#                     [32, 2, 2],
+#                     [18, 1.5, 2],
+#                     [22, -1.5, 2],
+#                     [25, 0, 2],  # 2.1
+#                     [29, -1.5, 2],
+#                     [8, 0, 2],
+#                     [35, 5, 2],
+#                     [40, 0.4, 2],
+#                     [45, 3.5, 2],
+#                     [50, -8, 2],
+#                     [55, -6, 2]])
+# ID_Tong = [20, 30, 40, 50, 60, 70, 80, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
 
 
 class Px4Controller:
@@ -107,7 +107,7 @@ class Px4Controller:
         '''
         self.vel_pub = rospy.Publisher(
             'mavros/setpoint_velocity/cmd_vel', TwistStamped, queue_size=10)
-        self.sphere_pub = rospy.Publisher("ue4_ros/obj", Obj, queue_size=10)
+        # self.sphere_pub = rospy.Publisher("ue4_ros/obj", Obj, queue_size=10)
 
         '''
         ros services
@@ -180,7 +180,7 @@ class Px4Controller:
         self.offboard_state.custom_mode = "OFFBOARD"
         self.arm_state = CommandBool()
         self.arm_state.value = True
-        self.sphere_control()
+        # self.sphere_control()
 
         start_time = rospy.Time.now()
         '''
@@ -329,23 +329,23 @@ class Px4Controller:
         print("mav_yaw: {}".format(self.mav_yaw))
         print("cmd_yaw: {}".format(self.cmd_yaw))
 
-    def sphere_control(self):
-        obj_msg = Obj()
-        nums = 17
-        while nums > 0:
-            obj_msg.id = ID_Tong[nums - 1]
-            obj_msg.type = 24
-            obj_msg.position.x = Pos_Tong[nums - 1][0]
-            # print("obj_msg.position.x: {}".format(obj_msg.position.x))
-            obj_msg.position.y = Pos_Tong[nums - 1][1]
-            # print("obj_msg.position.y: {}".format(obj_msg.position.y))
-            obj_msg.position.z = Pos_Tong[nums - 1][2]
-            # print("obj_msg.position.z: {}".format(obj_msg.position.z))
-            obj_msg.size.x = 0.4
-            obj_msg.size.y = 0.4
-            obj_msg.size.z = 1
-            self.sphere_pub.publish(obj_msg)
-            nums = nums - 1
+    # def sphere_control(self):
+    #     obj_msg = Obj()
+    #     nums = 17
+    #     while nums > 0:
+    #         obj_msg.id = ID_Tong[nums - 1]
+    #         obj_msg.type = 24
+    #         obj_msg.position.x = Pos_Tong[nums - 1][0]
+    #         # print("obj_msg.position.x: {}".format(obj_msg.position.x))
+    #         obj_msg.position.y = Pos_Tong[nums - 1][1]
+    #         # print("obj_msg.position.y: {}".format(obj_msg.position.y))
+    #         obj_msg.position.z = Pos_Tong[nums - 1][2]
+    #         # print("obj_msg.position.z: {}".format(obj_msg.position.z))
+    #         obj_msg.size.x = 0.4
+    #         obj_msg.size.y = 0.4
+    #         obj_msg.size.z = 1
+    #         self.sphere_pub.publish(obj_msg)
+    #         nums = nums - 1
 
     def minAngleDiff(self, a, b):
         diff = a - b

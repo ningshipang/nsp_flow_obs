@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/wsh/RflySim_ws/devel/include/**",
+        "/home/wsh/Prometheus/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/wsh/Prometheus/Modules/planning/FastPlanner/bspline_opt/include/**",
+        "/home/wsh/Prometheus/Modules/planning/FastPlanner/path_searching/include/**",
+        "/home/wsh/Prometheus/Modules/planning/FastPlanner/plan_env/include/**",
+        "/home/wsh/Prometheus/Modules/control/include/**",
+        "/home/wsh/Prometheus/Simulator/gazebo_simulator/include/**",
+        "/home/wsh/Prometheus/Modules/planning/global_planner/include/**",
+        "/home/wsh/Prometheus/Modules/planning/local_planner/include/**",
+        "/home/wsh/Prometheus/Modules/mission/include/**",
+        "/home/wsh/Prometheus/Modules/planning/FastPlanner/plan_manage/include/**",
+        "/home/wsh/Prometheus/Modules/planning/Utils/pose_utils/include/**",
+        "/home/wsh/Prometheus/Modules/slam/include/**",
+        "/home/wsh/Rfly_Attack/src/tracker_pkg/include/**",
+        "/home/wsh/Prometheus/Modules/planning/FastPlanner/traj_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
